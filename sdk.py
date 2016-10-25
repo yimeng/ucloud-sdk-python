@@ -20,7 +20,7 @@ def _verfy_ac(private_key, params):
         params_data = params_data + str(key) + str(value)
 
     params_data = params_data+private_key
-    
+
     '''use sha1 to encode keys'''
     hash_new = hashlib.sha1()
     hash_new.update(params_data)
@@ -42,7 +42,8 @@ class UConnection(object):
 
     def get(self, resouse, params):
         resouse += "?" + urllib.urlencode(params)
-        print("%s%s" % (self.base_url, resouse))
+        # 打印url
+        #print("%s%s" % (self.base_url, resouse))
         self.conn.request("GET", resouse)
         response = json.loads(self.conn.getresponse().read())
         return response
@@ -60,7 +61,7 @@ class UcloudApiClient(object):
         # print params
         _params = dict(self.g_params, **params)
 
-        if project_id : 
+        if project_id :
             _params["ProjectId"] = project_id
 
         _params["Signature"] = _verfy_ac(self.private_key, _params)
