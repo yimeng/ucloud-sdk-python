@@ -14,7 +14,7 @@ if __name__=='__main__':
     ApiClient = UcloudApiClient(base_url, public_key, private_key)
     Parameters={
                 "Action":"DescribeUHostInstance",
-                "Region":"cn-north-03",
+                "Region":region,
                }
     response = ApiClient.get("/", Parameters);
     print json.dumps(response, sort_keys=True, indent=4, separators=(',', ': '))
