@@ -14,8 +14,8 @@ if __name__=='__main__':
     ApiClient = UcloudApiClient(base_url, public_key, private_key)
     Parameters={
             "Action":"CreateUHostInstance",
-            "Zone":"cn-bj2-02",
-            "Region":"cn-bj2",
+            "Zone":zone,
+            "Region":region,
             "Name":name,
             "ImageId":"uimage-qegj3w",
             "LoginMode":"Password",
@@ -30,4 +30,4 @@ if __name__=='__main__':
             "SecurityGroupId":SecurityGroupId
             }
     response = ApiClient.get("/", Parameters);
-    #print json.dumps(response, sort_keys=True, indent=4, separators=(',', ': '))
+    print json.dumps(response, sort_keys=True, indent=4, separators=(',', ': '))
