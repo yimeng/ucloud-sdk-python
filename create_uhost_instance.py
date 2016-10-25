@@ -14,12 +14,20 @@ if __name__=='__main__':
     ApiClient = UcloudApiClient(base_url, public_key, private_key)
     Parameters={
             "Action":"CreateUHostInstance",
-            "Region":"cn-north-03",
-            "ImageId":"uimage-qiut5g",
+            "Zone":"cn-bj2-02",
+            "Region":"cn-bj2",
+            "Name":name,
+            "ImageId":"uimage-qegj3w",
             "LoginMode":"Password",
-            "Password":"MTIzNDU2NzgK",
-            "Tag":"NewGroup1",
-            "UHostType":"BD"
+            "Password":password,
+            "Tag":tag,
+            "ChargeType":"Dynamic",
+            "CPU":"1",
+            "Memory":"2048",
+            "StorageType":"LocalDisk",
+            "DiskSpace":"0",
+            "UHostType":"Normal",
+            "SecurityGroupId":SecurityGroupId
             }
     response = ApiClient.get("/", Parameters);
-    print json.dumps(response, sort_keys=True, indent=4, separators=(',', ': '))
+    #print json.dumps(response, sort_keys=True, indent=4, separators=(',', ': '))
